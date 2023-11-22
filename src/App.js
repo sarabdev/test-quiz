@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@chakra-ui/react";
+import { Route, Routes } from "react-router-dom";
+import Header from "./Components/Header/header";
+import AdminMain from "./Components/Main/Admin/adminMain";
+import AdminQuiz from "./Components/Quiz/adminQuiz";
+import AdminQuestions from "./Components/Question/adminQuestions";
+import UserMain from "./Components/Main/User/userMain";
+import UserHeader from "./Components/Header/userHeader";
+import UserQuiz from "./Components/Main/User/userQuiz";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Routes>
+        <Route path="/admin" element={<Header />}>
+          <Route exact index path="categories" element={<AdminMain />} />
+          <Route
+            path="/admin/categories/:categoryid/quiz"
+            element={<AdminQuiz />}
+          />
+          <Route
+            path="/admin/categories/:categoryid/quiz/:quizid/questions"
+            element={<AdminQuestions />}
+          />
+        </Route>
+        <Route path="/" element={<UserMain />} />
+        <Route path="/quiz/:id" element={<UserQuiz />} />
+      </Routes>
+    </Box>
   );
-}
+};
 
 export default App;
