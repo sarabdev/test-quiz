@@ -78,7 +78,7 @@ function AdminQuestionList({ question, questionNumber, refresh }) {
       return;
     }
     axios
-      .patch(`http://localhost:4000/questions/${id}`, {
+      .patch(`${REACT_APP_SERVER_URL}questions/${id}`, {
         question: updateQuestion,
         answers: updateSelected,
       })
@@ -109,7 +109,7 @@ function AdminQuestionList({ question, questionNumber, refresh }) {
 
   const deleteQuestion = (id) => {
     axios
-      .delete(`http://localhost:4000/questions/${id}`)
+      .delete(`${REACT_APP_SERVER_URL}questions/${id}`)
       .then((res) => {
         toast({
           position: "top-right",

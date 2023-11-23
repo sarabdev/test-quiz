@@ -33,7 +33,7 @@ function AdminQuestions() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/questions/${quizid}`)
+      .get(`${REACT_APP_SERVER_URL}questions/${quizid}`)
       .then((res) => {
         setAllQuestions(res.data);
       })
@@ -86,7 +86,7 @@ function AdminQuestions() {
       return;
     }
     axios
-      .post(`http://localhost:4000/questions/${quizid}`, {
+      .post(`${REACT_APP_SERVER_URL}questions/${quizid}`, {
         question,
         answers: selected,
       })
@@ -103,7 +103,7 @@ function AdminQuestions() {
         setSelected([]);
         onClose();
         axios
-          .get(`http://localhost:4000/questions/${quizid}`)
+          .get(`${REACT_APP_SERVER_URL}questions/${quizid}`)
           .then((res) => {
             setAllQuestions(res.data);
           })
@@ -124,7 +124,7 @@ function AdminQuestions() {
 
   const refresh = () => {
     axios
-      .get(`http://localhost:4000/questions/${quizid}`)
+      .get(`${REACT_APP_SERVER_URL}questions/${quizid}`)
       .then((res) => {
         setAllQuestions(res.data);
         // setQuestion(res.data);

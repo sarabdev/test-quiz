@@ -33,7 +33,7 @@ function AdminMain() {
   const toast = useToast();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/catagories`)
+      .get(`${REACT_APP_SERVER_URL}catagories`)
       .then((res) => {
         setAllCategories(res.data);
         setCategories(res.data);
@@ -46,7 +46,7 @@ function AdminMain() {
       return;
     }
     axios
-      .post(`http://localhost:4000/catagories`, { name: category })
+      .post(`${REACT_APP_SERVER_URL}catagories`, { name: category })
       .then((res) => {
         toast({
           position: "top-right",
@@ -58,7 +58,7 @@ function AdminMain() {
         });
         onClose();
         axios
-          .get(`http://localhost:4000/catagories`)
+          .get(`${REACT_APP_SERVER_URL}catagories`)
           .then((res) => {
             setAllCategories(res.data);
             setCategories(res.data);
@@ -79,7 +79,7 @@ function AdminMain() {
   };
   const refresh = () => {
     axios
-      .get(`http://localhost:4000/catagories`)
+      .get(`${REACT_APP_SERVER_URL}catagories`)
       .then((res) => {
         setAllCategories(res.data);
         setCategories(res.data);

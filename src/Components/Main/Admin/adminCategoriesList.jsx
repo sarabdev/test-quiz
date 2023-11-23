@@ -37,7 +37,7 @@ function AdminCategoriesList({ category, refresh }) {
       });
     }
     axios
-      .patch(`http://localhost:4000/catagories/${id}`, {
+      .patch(`${REACT_APP_SERVER_URL}catagories/${id}`, {
         name: updateCategoryname,
       })
       .then((res) => {
@@ -67,7 +67,7 @@ function AdminCategoriesList({ category, refresh }) {
 
   const deleteCategory = (id) => {
     axios
-      .delete(`http://localhost:4000/catagories/${id}`)
+      .delete(`${REACT_APP_SERVER_URL}catagories/${id}`)
       .then((res) => {
         toast({
           position: "top-right",

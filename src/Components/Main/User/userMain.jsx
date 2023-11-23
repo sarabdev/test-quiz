@@ -26,7 +26,7 @@ export default function UserMain() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/catagories`)
+      .get(`${REACT_APP_SERVER_URL}catagories`)
       .then((res) => {
         setCategories(res.data);
         setQuiz(res.data[0].quiz);
