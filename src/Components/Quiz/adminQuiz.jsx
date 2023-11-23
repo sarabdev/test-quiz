@@ -42,7 +42,7 @@ function AdminQuiz() {
   const toast = useToast();
   useEffect(() => {
     axios
-      .get(`${REACT_APP_SERVER_URL}quiz/${categoryid}`)
+      .get(`${process.env.REACT_APP_SERVER_URL}quiz/${categoryid}`)
       .then((res) => {
         setAllQuiz(res.data);
         setQuizs(res.data);
@@ -63,7 +63,7 @@ function AdminQuiz() {
     }
 
     axios
-      .post(`${REACT_APP_SERVER_URL}quiz/${categoryid}`, {
+      .post(`${process.env.REACT_APP_SERVER_URL}quiz/${categoryid}`, {
         name: quiz.name,
         time: timeInSeconds,
       })
@@ -78,7 +78,7 @@ function AdminQuiz() {
         });
         onClose();
         axios
-          .get(`${REACT_APP_SERVER_URL}quiz/${categoryid}`)
+          .get(`${process.env.REACT_APP_SERVER_URL}quiz/${categoryid}`)
           .then((res) => {
             setAllQuiz(res.data);
             setQuizs(res.data);
@@ -100,7 +100,7 @@ function AdminQuiz() {
 
   const refresh = () => {
     axios
-      .get(`${REACT_APP_SERVER_URL}quiz/${categoryid}`)
+      .get(`${process.env.REACT_APP_SERVER_URL}quiz/${categoryid}`)
       .then((res) => {
         setAllQuiz(res.data);
         setQuizs(res.data);

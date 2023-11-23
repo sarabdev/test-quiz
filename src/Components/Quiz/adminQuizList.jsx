@@ -49,7 +49,7 @@ function AdminQuizList({ quiz, refresh }) {
     }
 
     axios
-      .patch(`${REACT_APP_SERVER_URL}quiz/${id}`, {
+      .patch(`${process.env.REACT_APP_SERVER_URL}quiz/${id}`, {
         name: updateQuiz.name,
         time: timeInSeconds,
       })
@@ -80,7 +80,7 @@ function AdminQuizList({ quiz, refresh }) {
 
   const deleteQuiz = (id) => {
     axios
-      .delete(`${REACT_APP_SERVER_URL}quiz/${id}`)
+      .delete(`${process.env.REACT_APP_SERVER_URL}quiz/${id}`)
       .then((res) => {
         toast({
           position: "top-right",

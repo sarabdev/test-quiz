@@ -92,7 +92,7 @@ function UserQuiz() {
 
   useEffect(() => {
     axios
-      .get(`${REACT_APP_SERVER_URL}quiz/${id}/quiz`)
+      .get(`${process.env.REACT_APP_SERVER_URL}quiz/${id}/quiz`)
       .then((res) => {
         setQuiz(res.data);
         setTime(formatTime(res.data.time));
